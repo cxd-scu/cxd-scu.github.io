@@ -1,233 +1,513 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <meta name="description" content="​    最近决定系统的复习一下HTML与CSS的内容，同时了解一下最新的HTML5与CSS3的变化，特此对自己的学习过程做一个记录。" />
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
 
-  
-  
-  
-  
-  
-  
-  <title>HTML5学习笔记 | 陈旭东的BLOG</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.0.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+
   <meta name="description" content="​    最近决定系统的复习一下HTML与CSS的内容，同时了解一下最新的HTML5与CSS3的变化，特此对自己的学习过程做一个记录。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML5学习笔记">
 <meta property="og:url" content="http://example.com/2020/11/17/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
-<meta property="og:site_name" content="陈旭东的BLOG">
+<meta property="og:site_name" content="BLOG">
 <meta property="og:description" content="​    最近决定系统的复习一下HTML与CSS的内容，同时了解一下最新的HTML5与CSS3的变化，特此对自己的学习过程做一个记录。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-17T06:47:42.000Z">
-<meta property="article:modified_time" content="2020-11-21T14:43:52.764Z">
-<meta property="article:author" content="CXD">
-<meta property="article:tag" content="HTML5">
+<meta property="article:modified_time" content="2020-11-22T11:35:04.937Z">
+<meta property="article:author" content="陈旭东">
+<meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
-  
-  
-    <link rel="icon" href="/css/images/favicon.ico">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
+
+<link rel="canonical" href="http://example.com/2020/11/17/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>HTML5学习笔记 | BLOG</title>
   
 
-  
-  <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
-<body class="home blog custom-background custom-font-enabled single-author">
-  <div id="page" class="hfeed site">
-      <header id="masthead" class="site-header" role="banner">
-    <hgroup>
-      <h1 class="site-title">
-        <a href="/" title="陈旭东的BLOG" rel="home">陈旭东的BLOG</a>
-      </h1>
-      
-        <h2 class="site-description hitokoto"></h2>
-        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
-      
-    </hgroup>
 
-    <nav id="site-navigation" class="main-navigation" role="navigation">
-            <button class="menu-toggle">菜单</button>
-            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
-            <div class="menu-main-container">
-                <ul id="menu-main" class="nav-menu">
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
-                
-                </ul>
-            </div>
-    </nav>
-</header>
 
-      <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-HTML学习笔记" class="post-HTML学习笔记 post type-post status-publish format-standard hentry">
-    <!---->
 
-      <header class="entry-header">
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">BLOG</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">为了生活低三下四</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
         
-        
   
-    <h1 class="entry-title article-title">
-      HTML5学习笔记
-    </h1>
-  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
 
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML5%E4%B8%8E%E5%85%B6%E4%BB%96%E7%89%88%E6%9C%AC%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">HTML5与其他版本的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E7%95%99%E7%9A%84%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.</span> <span class="nav-text">保留的常用标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.2.</span> <span class="nav-text">文本格式化标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">1.1.3.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E7%9B%B8%E5%85%B3%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.4.</span> <span class="nav-text">表格相关标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%86%E6%9E%B6%E7%9B%B8%E5%85%B3%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.5.</span> <span class="nav-text">框架相关标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE"><span class="nav-number">1.2.</span> <span class="nav-text">新增的常用标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84%E6%A0%87%E7%AD%BE"><span class="nav-number">1.2.1.</span> <span class="nav-text">文档结构标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E4%B9%89%E7%9B%B8%E5%85%B3%E6%A0%87%E7%AD%BE"><span class="nav-number">1.2.2.</span> <span class="nav-text">语义相关标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5%E9%80%9A%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">HTML5通用属性</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈旭东</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
         
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://example.com/2020/11/17/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="ckhrszdpo0000k8wa5yvler2i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
 
-    <div class="entry-content">
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
       
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/17/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈旭东">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTML5学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-17 14:47:42" itemprop="dateCreated datePublished" datetime="2020-11-17T14:47:42+08:00">2020-11-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-22 19:35:04" itemprop="dateModified" datetime="2020-11-22T19:35:04+08:00">2020-11-22</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
         <p>​    最近决定系统的复习一下HTML与CSS的内容，同时了解一下最新的HTML5与CSS3的变化，特此对自己的学习过程做一个记录。</p>
 <a id="more"></a>
 
 <h1 id="HTML5与其他版本的区别"><a href="#HTML5与其他版本的区别" class="headerlink" title="HTML5与其他版本的区别"></a>HTML5与其他版本的区别</h1><h2 id="保留的常用标签"><a href="#保留的常用标签" class="headerlink" title="保留的常用标签"></a>保留的常用标签</h2><h3 id="基本标签"><a href="#基本标签" class="headerlink" title="基本标签"></a>基本标签</h3><ul>
-<li><!--...-->：定义注释</li>
-<li>=<html>=HTML5文档的根元素，HTML5中允许省略</li>
-<li></li>
+<li><code>&lt;!--...--&gt;</code>：定义注释</li>
+<li><code>&lt;html&gt;</code>: HTML5文档的根元素，HTML5中允许省略</li>
+<li><code>&lt;head&gt;</code>: 定义页面头部，允许被省略</li>
+<li><code>&lt;title&gt;</code>: 定义HTML页面标题</li>
+<li><code>&lt;body&gt;</code>: 定义文档页面主体部分</li>
+<li><code>&lt;style&gt;</code>: 引入样式定义</li>
+<li><code>&lt;h1&gt;</code>到<code>&lt;h6&gt;</code>： 定义标题1到6</li>
+<li><code>&lt;p&gt;</code>:定义段落</li>
+<li><code>&lt;div&gt;</code>: 定义文档中的分区</li>
+<li><code>&lt;span&gt;</code>: 对特定的部分进行样式的应用</li>
+<li><code>&lt;br&gt;</code>: 插入换行符</li>
+<li><code>&lt;hr&gt;</code>: 插入水平分割线</li>
+</ul>
+<h3 id="文本格式化标签"><a href="#文本格式化标签" class="headerlink" title="文本格式化标签"></a>文本格式化标签</h3><ul>
+<li><code>&lt;i&gt;</code>: 定义斜体文本</li>
+<li><code>&lt;em&gt;</code>: 定义强调的内容</li>
+<li><code>&lt;strong&gt;</code>: 定义粗体文本，比<code>&lt;em&gt;</code>的强调程度更强</li>
+<li><code>&lt;small&gt;</code>:定义小号字体</li>
+<li><code>&lt;sup&gt;</code>: 定义上标文本</li>
+<li><code>&lt;sub&gt;</code>: 定义下标文本</li>
+<li><code>&lt;bdo&gt;</code>: 定义文本显示方向，可以指定dir属性，属性值为ltr（从左向右排列），rtl（从右向左排列）</li>
+<li><code>&lt;b&gt;</code>:定义粗体文本</li>
+</ul>
+<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><p>HTML5保留了定义超链接的<code>&lt;a&gt;</code>标签，用于从一个页面链接到另一个页面，该标签主要有以下三个属性</p>
+<ul>
+<li><code>&lt;href&gt;</code>: 指定超链接关联的另一个资源，属性为URL，其既可以是绝对路径也可以是相对路径</li>
+<li><code>&lt;target&gt;</code>: 指定使用框架集中的哪个框架加载新资源，属性值有_self,_blank, _top, _parent四个值，分别代表使用自身，新窗口，顶层窗口以及父窗口加载新资源</li>
+<li><code>&lt;media&gt;</code>: HTML5新增的属性，指定目标URL所引用的媒体类型。用于规定目标URL是为特殊设备、语音或打印媒介设计的。默认值为all，可接收多个值。</li>
+</ul>
+<h3 id="表格相关标签"><a href="#表格相关标签" class="headerlink" title="表格相关标签"></a>表格相关标签</h3><ul>
+<li><code>&lt;table&gt;</code>: 用于定义表格</li>
+<li><code>&lt;caption&gt;</code>: 定义表格标题</li>
+<li><code>&lt;thead&gt;</code>: 定义表格头</li>
+<li><code>&lt;tbody&gt;</code>：定义表格主体</li>
+<li><code>&lt;tr&gt;</code>：定义表格行</li>
+<li><code>&lt;td&gt;</code>：定义单元格，该元素可定义跨行跨列属性，rowspan属性为跨行，colspan为跨列</li>
+<li><code>&lt;th&gt;</code>：定义表格页眉的单元格</li>
+<li><code>&lt;tfoot&gt;</code>：定义表格页脚</li>
+<li><code>&lt;col&gt;</code>：为表格的一个或多个列指定属性</li>
+</ul>
+<h3 id="框架相关标签"><a href="#框架相关标签" class="headerlink" title="框架相关标签"></a>框架相关标签</h3><p>HTML5保留了与框架相关的 <code>&lt;iframe&gt;</code>标签，可用于在一个页面中装在另一个页面，有src属性用于指定URL</p>
+<h2 id="新增的常用标签"><a href="#新增的常用标签" class="headerlink" title="新增的常用标签"></a>新增的常用标签</h2><h3 id="文档结构标签"><a href="#文档结构标签" class="headerlink" title="文档结构标签"></a>文档结构标签</h3><ul>
+<li><code>&lt;header&gt;</code>: 表示页面中一个内容区块或整个页面的标题</li>
+<li><code>&lt;nav&gt;</code>:定义导航链接的部分 </li>
+<li><code>&lt;article&gt;</code>:标记页面中一块与上下文不相关的独立内容，如博客中的一篇文章 </li>
+<li><code>&lt;section&gt;</code>:标记页面中的一个内容区块，如章节、页眉、页脚或其他部分 </li>
+<li><code>&lt;aside&gt;</code>:标记页面主区域内容之外的内容，比如侧边栏，标签内的内容应和主区域的内容相关 </li>
+<li><code>&lt;footer&gt;</code>:放在页面或section底部，显示相关联的文章、版权或链接声明等 </li>
+<li><code>&lt;hgroup&gt;</code>:用于对整个页面或页面的一个内容区块的标题进行组合 </li>
+<li><code>&lt;figure&gt;</code>:用于标记独立的流内容（图像、图表、代码等） </li>
+<li><code>&lt;figcaption&gt;</code>:定义figure元素的标题 </li>
+</ul>
+<h3 id="语义相关标签"><a href="#语义相关标签" class="headerlink" title="语义相关标签"></a>语义相关标签</h3><p>语义标签能够透过字面意思清楚地描述其意义给浏览器和开发者。</p>
+<ul>
+<li><code>&lt;mark&gt;</code>:定义带有记号的文本，浏览器通常以黄色显示 </li>
+<li><code>&lt;time&gt;</code>:定义日期或时间 </li>
+<li><code>&lt;details&gt;</code>:用于描述文档或某个部分的细节，通常与summary元素结合使用 </li>
+<li><code>&lt;dialog&gt;</code>:定义对话框或窗口 </li>
+<li><code>&lt;meter&gt;</code>:定义度量衡</li>
+<li><code>&lt;progress&gt;</code>:  定义任何类型任务的进度</li>
+</ul>
+<h2 id="HTML5通用属性"><a href="#HTML5通用属性" class="headerlink" title="HTML5通用属性"></a>HTML5通用属性</h2><ul>
+<li><code>&lt;cententEditable&gt;</code>:用于规定是否可编辑元素的内容。属性只有两个，true可编辑，false不可编辑。如果元素没有设置该属性，那么该元素会从父元素继承该属性</li>
+<li><code>&lt;designMode&gt;</code>:一个全局的contentEditable属性，如果把整个页面的designMode属性设为on，该页面所有支持contentEditable属性的元素都会变为可编辑状态，该属性默认值为false。JavaScript中只能修改整个页面的designMode属性</li>
+<li><code>&lt;hidden&gt;</code>:将某个HTML元素的hidden值设为true后，浏览器将不显示该元素，也不保留该元素占有的空间</li>
+<li><code>&lt;tabindex&gt;</code>:规定元素的Tab键控制次序</li>
+<li><code>&lt;spellcheck&gt;</code>:该属性设为true后，浏览器会对用户输入的文本内容执行检察，若不通过，浏览器会进行提示     </li>
 </ul>
 
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2020/11/17/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-    <time datetime="2020-11-17T06:47:42.000Z" class="entry-date">
-        2020-11-17
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-  </div>
+    </div>
 
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/" rel="tag">HTML5</a></li></ul>
+    
+    
 
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/13/JS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" rel="prev" title="JS的事件处理">
+                  <i class="fa fa-chevron-left"></i> JS的事件处理
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
-</article>
-
-
-    
-<nav class="nav-single">
-    <h3 class="assistive-text">文章导航</h3>
-    
-    
-        <span class="nav-next"><a href="/2020/11/13/JS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" rel="next">JS的事件处理 <span class="meta-nav">→</span></a></span>
-    
-</nav><!-- .nav-single -->
-
-
-
-
-
-
-
-</div></div>
-        <div id="secondary" class="widget-area" role="complementary">
-  
-    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
-    <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
-    </div>
-</form></aside>
-  
-    
-  
-    
-  <aside class="widget">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </aside>
-
-  
-    
-  <aside class="widget">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget-content">
-      <ul>
-        
-          <li>
-            <a href="/2020/11/17/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">HTML5学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/13/JS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/">JS的事件处理</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/11/%E5%B0%8F%E6%B8%B8%E6%88%8F/">网页小游戏</a>
-          </li>
-        
-      </ul>
-    </div>
-  </aside>
-
-  
-    
-  <aside class="widget">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget-content">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/" rel="tag">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">2</span></li></ul>
-    </div>
-  </aside>
-
-  
-    
-  <aside class="widget">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget-content tagcloud">
-      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a>
-    </div>
-  </aside>
-
-  
+  </article>
 </div>
-      </div>
-      <footer id="colophon" role="contentinfo">
-    <p>&copy; 2020 CXD
-    All rights reserved.</p>
-    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
-</footer>
-    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
-
-<script src="/js/jquery-3.3.1.min.js"></script>
 
 
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
   
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-<script src="/js/navigation.js"></script>
-
-<div id="bg"></div>
-
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈旭东</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+	
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
 </body>
 </html>
