@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.0.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+
+  <meta name="description" content="​       接口（interface）用来描述类应该做什么，而不指定它们具体应该如何做。一个类可以实现一个或者多个接口。有些情况可能要求符合这些接口，只要有这种要求，就可以使用实现了这个接口的类的对象。 接口的概念在Java程序设计语言中，接口不是类，而是对希望符合这个接口的类的一组需求。 例如，Arrays类中的sort方法可以对对象数组进行排序，但要求该对象所属的类必须实现Comparab">
+<meta property="og:type" content="article">
+<meta property="og:title" content="接口">
+<meta property="og:url" content="http://example.com/2020/11/29/%E6%8E%A5%E5%8F%A3/index.html">
+<meta property="og:site_name" content="BLOG">
+<meta property="og:description" content="​       接口（interface）用来描述类应该做什么，而不指定它们具体应该如何做。一个类可以实现一个或者多个接口。有些情况可能要求符合这些接口，只要有这种要求，就可以使用实现了这个接口的类的对象。 接口的概念在Java程序设计语言中，接口不是类，而是对希望符合这个接口的类的一组需求。 例如，Arrays类中的sort方法可以对对象数组进行排序，但要求该对象所属的类必须实现Comparab">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-29T07:45:13.000Z">
+<meta property="article:modified_time" content="2020-11-29T10:41:31.885Z">
+<meta property="article:author" content="陈旭东">
+<meta property="article:tag" content="OOP">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/11/29/%E6%8E%A5%E5%8F%A3/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>接口 | BLOG</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">BLOG</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">为了生活低三下四</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">接口的概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">接口的属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">静态方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">默认方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%9B%9E%E8%B0%83"><span class="nav-number">5.</span> <span class="nav-text">接口与回调</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Comparator%E6%8E%A5%E5%8F%A3"><span class="nav-number">6.</span> <span class="nav-text">Comparator接口</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%8B%E9%9A%86"><span class="nav-number">7.</span> <span class="nav-text">对象的克隆</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈旭东</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/29/%E6%8E%A5%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈旭东">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          接口
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-29 15:45:13 / 修改时间：18:41:31" itemprop="dateCreated datePublished" datetime="2020-11-29T15:45:13+08:00">2020-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>​       接口（interface）用来描述类应该做什么，而不指定它们具体应该如何做。一个类可以实现一个或者多个接口。有些情况可能要求符合这些接口，只要有这种要求，就可以使用实现了这个接口的类的对象。</p>
+<h6 id="接口的概念"><a href="#接口的概念" class="headerlink" title="接口的概念"></a>接口的概念</h6><p>在Java程序设计语言中，接口不是类，而是对希望符合这个接口的类的一组需求。</p>
+<p>例如，Arrays类中的sort方法可以对对象数组进行排序，但要求该对象所属的类必须实现Comparable接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Comparable</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(T other)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这说明，任何实现Comparable接口的类必须包含一个compareTo方法，该方法有一个类型参数，并返回一个整数。准确的说，在调用x.compareTo(y)时，这个方法必须确实能够比较两个对象并返回比较的结果。当x大于y时，返回一个正数；当x等于y时，返回0；否则返回一个负数。</p>
+<p>接口中所有的方法都自动是public的，因此，在声明时不必提供修饰符。</p>
+<p>接口中可以包含多个方法，也可以定义常量。但是，接口不可以有实例字段，在接口中实现的简单方法也不能引用实例字段。</p>
+<p>现在，假设需要使用Arrays的sort方法对Employee（员工）对象进行排序，Employee对象就必须实现Comparable接口，就要使用到关键字implements：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Employee</span>&gt;</span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Employee类会具体提供compareTo方法的实现，假设希望根据员工的薪水来比较。下面是compareTo的实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Employee employee)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Double.compare(<span class="keyword">this</span>.salary, employee.salary);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此处使用了静态的Double.compare方法。如果第一个参数小于第二个参数，就返回一个负值；二者相等返回0，否则返回一个正值。</p>
+<h6 id="接口的属性"><a href="#接口的属性" class="headerlink" title="接口的属性"></a>接口的属性</h6><p>接口不是类。具体来说，不能使用new运算符实例化一个接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Comparable x = <span class="keyword">new</span> Comparable(...) <span class="comment">//ERROR</span></span><br></pre></td></tr></table></figure>
+
+<p>但是，尽管不能构造接口的对象，却能声明接口的变量：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Comparable x; <span class="comment">//OK</span></span><br></pre></td></tr></table></figure>
+
+<p>接口变量必须引用实现了这个接口的类对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="keyword">new</span> Employee(...);</span><br></pre></td></tr></table></figure>
+
+<p>可以使用instanceof检查一个对象是否实现了某个特定的接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(obj <span class="keyword">instanceof</span> Comparable)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>虽然接口中不能包含实例字段，但是却可以包含常量：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">interfaceDemo</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> aInt = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口中的常量将自动设置为 <code>public static final</code>。</p>
+<p>Java中每个类只能有一个超类，但却可以实现多个接口，这样提供了极大的灵活性。可以使用逗号分隔要实现的接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Employee</span>&gt;, <span class="title">Cloneable</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h6><p>允许在接口中添加静态方法，目前为止，通常的做法都是将静态方法放入伴随类中，例如Collection/Collections, Path/Paths。</p>
+<h6 id="默认方法"><a href="#默认方法" class="headerlink" title="默认方法"></a>默认方法</h6><p>可以为接口方法提供一个默认实现。必须使用default修饰符标记这样一个方法，在有些情况下，默认方法会很有用，比如接口Iterator，该接口用于访问一个数据结构中的元素，这个接口声明了一个remove方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">T <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException(<span class="string">&quot;remove&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你想要实现一个迭代器，就需要提供hasNext与next方法，这些方法没有默认实现，但如果你的迭代器是只读的，就不用担心实现remove方法。</p>
+<p>默认方法可以调用其他方法。例如，Collection接口可以定义一个便利方法isEmpty来指示集合是否为空：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Clooection</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size()==<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样实现Collection的程序员就不用担心实现isEmpty方法了。</p>
+<h6 id="接口与回调"><a href="#接口与回调" class="headerlink" title="接口与回调"></a>接口与回调</h6><p>回调是一种常见的程序设计模式。在这种模式中，可以指定某个特定事件发生时应该采取的动作。例如，按下鼠标或选择某个菜单项时，你可能希望完成某个特定的动作。</p>
+<p>下面举一个定时器的例子，假设希望每隔一秒钟打印一条消息”At the tone, the time is…”，然后响一声。</p>
+<p>这需要我们构造一个定时器，传入时间间隔与某个类的对象，然后定时器调用这个类的方法。</p>
+<p>定时器主要使用java.swing包中的Timer类。</p>
+<p>那么就可以定义一个实现了ActionListener接口的类，然后将想要执行的语句放在ActionPerformed方法中。下面是传入对象的定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimePrinter</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent actionEvent)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;At the tone, the time is &quot;</span></span><br><span class="line">                + Instant.ofEpochMilli(actionEvent.getWhen())); <span class="comment">//打印时间</span></span><br><span class="line">        Toolkit.getDefaultToolkit().beep(); <span class="comment">//响铃</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面展示了定时器与动作监听器的具体使用。定时器启动后，程序将弹出对话框并等待用户点击以停止程序的运行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    TimePrinter lis = <span class="keyword">new</span> TimePrinter();</span><br><span class="line">    Timer t = <span class="keyword">new</span> Timer(<span class="number">1000</span>, lis);</span><br><span class="line">    t.start();</span><br><span class="line">    JOptionPane.showMessageDialog(<span class="keyword">null</span>, <span class="string">&quot;quit&quot;</span>);</span><br><span class="line">    System.exit(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="Comparator接口"><a href="#Comparator接口" class="headerlink" title="Comparator接口"></a>Comparator接口</h6><p>如何对对象数组进行排序，前面示例是要求对象实现Comparable接口。例如，可以对字符串数组进行排序，因为String类实现了接口Comparable&lt;String&gt;。</p>
+<p>如果我们希望按照长度递增的顺序对字符串进行排序，就不能直接使用String中的compareTo方法了，要处理这种情况，就要使用Arrays.sort的另一个版本，使用数组与一个比较器作为参数。</p>
+<p>比较器是实现了Comparator接口的类的示例，要按长度比较字符串，可以定义一个实现Comparator&lt;String&gt;的类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LengthComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(String s, String t1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s.length() - t1.length();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是使用LengthComparator类的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        String[] person= <span class="keyword">new</span> String[]&#123;<span class="string">&quot;Alice&quot;</span>, <span class="string">&quot;Ada&quot;</span>, <span class="string">&quot;Baby&quot;</span>&#125;;</span><br><span class="line">        Arrays.sort(person, <span class="keyword">new</span> LengthComparator());</span><br><span class="line">        System.out.println(Arrays.toString(person)); <span class="comment">//[Ada, Baby, Alice]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="对象的克隆"><a href="#对象的克隆" class="headerlink" title="对象的克隆"></a>对象的克隆</h6><p>为一个包含对象引用的变量创建副本时，原变量与副本都是同一个对象的引用，任意一个变量改变都会影响另外一个变量。    如果希望copy是一个新对象，它的初始状态与original相同，但是之后它们会有各自不同的状态，这种情况下就要使用clone方法。</p>
+<p>不过，clone方法是Object的一个protected方法，这说明你的代码不能直接调用这个方法，因为Object对你编写的类一无所知，只能逐个字段的进行拷贝。如果对象中所有数据字段都是基本类型，拷贝就没有任何问题。但如果对象包含子对象的引用，拷贝字段就会得到相同子对象的另一个引用，这样，原对象与克隆对象仍会共享一些信息。</p>
+<p>因此，必须重新定义clone方法来建立一个深拷贝，同时克隆所有子对象。若如此，类就必须实现Cloneable接口。下面是一个Employee类定义的字段部分：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;           <span class="comment">//姓名</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> salary;         <span class="comment">//薪水</span></span><br><span class="line">    <span class="keyword">private</span> Date hireDay;     <span class="comment">//入职时间</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要对这个类进行拷贝，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line">        Employee cloned = (Employee)<span class="keyword">super</span>.clone();</span><br><span class="line">        cloned.hireDay = (Date)hireDay.clone();</span><br><span class="line">        <span class="keyword">return</span> cloned;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果要在一个对象上调用clone，但这个对象的类并没有实现Cloneable接口，Object类的clone方法就会抛出一个CloneNotSupportedException，因此，我们声明了这个异常。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OOP/" rel="tag"># OOP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/29/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="lambda表达式">
+                  <i class="fa fa-chevron-left"></i> lambda表达式
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/11/30/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="next" title="内部类">
+                  内部类 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈旭东</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+	
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
