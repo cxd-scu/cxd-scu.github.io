@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.0.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+
+  <meta name="description" content="处理错误在Java中，如果一个方法不能够采用正常的途径完成它的任务，可以通过另外一个路径退出方法。在这种情况下，方法并不返回任何值，而是抛出一个封装了错误信息的对象。需要注意的是，这个方法将会立即退出，并不返回任何正常值。此外，也不会从调用这个方法的代码继续执行，取而代之的是，异常处理机制开始搜索能够处理这种异常情况的异常处理器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异常处理">
+<meta property="og:url" content="http://example.com/2020/12/01/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.html">
+<meta property="og:site_name" content="XDBLOG">
+<meta property="og:description" content="处理错误在Java中，如果一个方法不能够采用正常的途径完成它的任务，可以通过另外一个路径退出方法。在这种情况下，方法并不返回任何值，而是抛出一个封装了错误信息的对象。需要注意的是，这个方法将会立即退出，并不返回任何正常值。此外，也不会从调用这个方法的代码继续执行，取而代之的是，异常处理机制开始搜索能够处理这种异常情况的异常处理器。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-01T03:02:17.000Z">
+<meta property="article:modified_time" content="2020-12-03T05:06:42.397Z">
+<meta property="article:author" content="陈旭东">
+<meta property="article:tag" content="OOP">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/12/01/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>异常处理 | XDBLOG</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">XDBLOG</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E9%94%99%E8%AF%AF"><span class="nav-number">1.</span> <span class="nav-text">处理错误</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">异常分类</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E6%A3%80%E6%9F%A5%E5%9E%8B%E5%BC%82%E5%B8%B8"><span class="nav-number">1.2.</span> <span class="nav-text">声明检查型异常</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="nav-number">1.3.</span> <span class="nav-text">抛出异常</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="nav-number">1.4.</span> <span class="nav-text">创建异常类</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8"><span class="nav-number">2.</span> <span class="nav-text">捕获异常</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8-1"><span class="nav-number">2.1.</span> <span class="nav-text">捕获异常</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%86%8D%E6%AC%A1%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E4%B8%8E%E5%BC%82%E5%B8%B8%E9%93%BE"><span class="nav-number">2.2.</span> <span class="nav-text">再次抛出异常与异常链</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#finally%E5%AD%90%E5%8F%A5"><span class="nav-number">2.3.</span> <span class="nav-text">finally子句</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#try-with-Resources%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.4.</span> <span class="nav-text">try-with-Resources语句</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%AD%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">断言</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%AD%E8%A8%80%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.</span> <span class="nav-text">断言的概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%AD%E8%A8%80"><span class="nav-number">3.2.</span> <span class="nav-text">使用断言</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈旭东</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/01/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈旭东">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XDBLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          异常处理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-01 11:02:17" itemprop="dateCreated datePublished" datetime="2020-12-01T11:02:17+08:00">2020-12-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-03 13:06:42" itemprop="dateModified" datetime="2020-12-03T13:06:42+08:00">2020-12-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h5 id="处理错误"><a href="#处理错误" class="headerlink" title="处理错误"></a>处理错误</h5><p>在Java中，如果一个方法不能够采用正常的途径完成它的任务，可以通过另外一个路径退出方法。在这种情况下，方法并不返回任何值，而是抛出一个封装了错误信息的对象。需要注意的是，这个方法将会立即退出，并不返回任何正常值。此外，也不会从调用这个方法的代码继续执行，取而代之的是，异常处理机制开始搜索能够处理这种异常情况的异常处理器。</p>
+<a id="more"></a>
+
+<h6 id="异常分类"><a href="#异常分类" class="headerlink" title="异常分类"></a>异常分类</h6><p>在Java语言中，所有的异常都是由Throwable类的类实例，但在下一层又分解为两个分支：Error与Exception。</p>
+<p>Error层次描述了Java运行时系统的内部错误和资源耗尽错误。应用程序不应抛出这种错误。</p>
+<p>重点关注的是Exception层次，这一层次又分解为两个分支：RuntimeException与其他异常。一般规则是，由编程错误导致的异常属于RuntimeException，如果程序本身没有问题，但由于像I/O错误这类问题导致的异常属于其他异常。</p>
+<p>派生于RuntimeException的异常包括以下问题：</p>
+<ul>
+<li>错误的强制类型转换</li>
+<li>数组访问越界</li>
+<li>访问null指针</li>
+</ul>
+<p>其他异常主要有：</p>
+<ul>
+<li>试图超越文件末尾继续读取数据</li>
+<li>试图打开一个不存在的文件</li>
+<li>试图根据给定的字符串查找Class对象，而这个字符串表示的类并不存在</li>
+</ul>
+<p>Java语言规范将派生于Error类与RuntimeException类的所有异常称为非检查型异常，所有其他异常称为检查型异常。<strong>编译器将检查你是否为所有的检查型异常提供了异常处理器。</strong></p>
+<h6 id="声明检查型异常"><a href="#声明检查型异常" class="headerlink" title="声明检查型异常"></a>声明检查型异常</h6><p>Java中，一个方法必须声明所有可能抛出的检查型异常，而非检查型异常要么在控制之外（ERROR），要么是由从一开始就应该避免的情况所导致的（RuntimeException）。如果你的方法没有声明所有的检查型异常，编译器就会发出一个错误信息。</p>
+<p>要在方法的首部指出这个方法可能抛出一个异常，所以要修改方法首部，以反映这个方法可能抛出的检查型异常。例如，下面是标准类库中FileInputStream类的一个构造器的声明：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">FileInputStream</span><span class="params">(String name)</span> <span class="keyword">throws</span> FileNotFoundException</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h6><p>当你的程序遇到了不正常的情况时，就需要抛出一个异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> ExceptionType();</span><br></pre></td></tr></table></figure>
+
+<p>这个过程主要有三步，首先是找到一个合适的异常类，然后创建这个类的对象，最后将对象抛出。一旦方法抛出了异常，这个方法就不会返回到调用者。也就是说，不必操心建立一个默认的返回值或错误码。</p>
+<h6 id="创建异常类"><a href="#创建异常类" class="headerlink" title="创建异常类"></a>创建异常类</h6><p>代码可能遇到任何标准异常类都无法描述清楚的问题，这种情况下，就应该创建自己的异常类。我们只需要定义一个派生于Exception或它的子类的类，通常，自定义的类都有两个构造器，一个是默认的构造器，另一个是包含详细描述信息的构造器。</p>
+<p>考虑一个读取文件的场景，当文件的长度小于程序要求读取的长度时，我们希望能够抛出一个异常，这个异常就由我们自己定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileLengthException</span> <span class="keyword">extends</span> <span class="title">IOException</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FileLengthException</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FileLengthException</span><span class="params">(String info)</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(info);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h5><p>有些方法只需要你将异常抛出即可，但是，也有些代码必须捕获异常，捕获异常通常需要更多规划。</p>
+<h6 id="捕获异常-1"><a href="#捕获异常-1" class="headerlink" title="捕获异常"></a>捕获异常</h6><p>如果发生了某个异常但没有任何一个地方捕获这个异常，程序就会中止，并在控制台上打印一个消息，其中包括这个异常的类型和一个堆栈轨迹。</p>
+<p>想要捕获一个异常，需要设置try/catch语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    code</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(ExceptionType e)&#123;</span><br><span class="line">    handler</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果try语句块中的任何代码抛出了catch子句指定的一个异常类，那么：</p>
+<ol>
+<li>程序将跳过try语句块剩余的代码</li>
+<li>程序将执行catch子句中的处理器代码</li>
+</ol>
+<p>如果try块没有抛出任何异常，程序将跳过catch语句。</p>
+<p>如果方法中的任何代码抛出了catch子句中没有声明的一个异常类型，那么这个方法就会立即退出。</p>
+<p>你可以在程序中捕获异常或者将异常抛出，通常来说，要捕获那些你知道如何处理的异常，而继续传播那些你不知道怎样处理的异常。</p>
+<p>但是，如果编写一个方法覆盖超类的方法，而这个超类方法没有抛出异常，你就必须捕获自己代码中出现的每一个检查型异常，不允许在子类的throws说明符中出现超类方法未列出的异常类。</p>
+<p>可以在一个try语句块捕获多个异常类型，并对不类型的异常做出不同的处理，要为每个异常类型使用一个单独的catch子句。</p>
+<h6 id="再次抛出异常与异常链"><a href="#再次抛出异常与异常链" class="headerlink" title="再次抛出异常与异常链"></a>再次抛出异常与异常链</h6><p>可以在catch子句抛出一个异常，通常，希望改变异常的类型时会这样做，例如在servlet代码中读取数据库的时候：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    access database</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(SQLException original)&#123;</span><br><span class="line">    <span class="keyword">var</span> e = <span class="keyword">new</span> ServletException(<span class="string">&quot;database error.&quot;</span>);</span><br><span class="line">    e.initCause(original);</span><br><span class="line">    <span class="keyword">throw</span> e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以将原始异常设置为新异常的原因，捕获这个异常时，可以使用下面的语句获取原始异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Throwable original = caughtException.getCause();</span><br></pre></td></tr></table></figure>
+
+<p>这种包装技术既可以在子系统抛出高层异常，又不会丢失原始异常的细节。</p>
+<h6 id="finally子句"><a href="#finally子句" class="headerlink" title="finally子句"></a>finally子句</h6><p>代码抛出异常时，就会停止处理这个方法的剩余代码，并退出这个方法。如果这个方法已经获得了一些只有它自己知道的本地资源，而这些资源必须被清理，就会出现问题。这时候就需要finally子句。</p>
+<p>不管是否有异常被捕获，finally子句中的代码都会被执行：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> in = <span class="keyword">new</span> FileInputStream(...);</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    code</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(ExceptionType e)&#123;</span><br><span class="line">    handler</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">finally</span>&#123;</span><br><span class="line">    in.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无论在try块是否遇到异常，finally语句中的in.close()都会执行。</p>
+<p>finally子句主要用于清理资源，不要把改变控制流的语句（return、throw、break、continue）放在finally子句中。</p>
+<h6 id="try-with-Resources语句"><a href="#try-with-Resources语句" class="headerlink" title="try-with-Resources语句"></a>try-with-Resources语句</h6><p>读取资源时，假设资源所属的类实现了AutoCloseable接口的类，Java7为关闭这种资源提供了一个很有用的快捷方式，try-with-Resources语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>(Resources res)&#123;</span><br><span class="line">    work with res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>try块退出时，将自动调用res.close()。下面是一个读取文件单词的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>(<span class="keyword">var</span> in = <span class="keyword">new</span> Scanner(<span class="keyword">new</span> FileInputStream(path), StandardCharsets.UTF_8))&#123;</span><br><span class="line">    <span class="keyword">while</span>(in.hasNext())</span><br><span class="line">        System.out.println(in.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个块正常退出或是存在一个异常时，都会调用in.close()方法，就好像使用了finally块一样。</p>
+<h5 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h5><p>在一个具有自我保护能力的程序中，断言十分常用。</p>
+<h6 id="断言的概念"><a href="#断言的概念" class="headerlink" title="断言的概念"></a>断言的概念</h6><p>假设确信某个属性符合要求，并且代码的执行依赖于这个属性，例如需要计算</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> y = Math.sqrt(x);</span><br></pre></td></tr></table></figure>
+
+<p>你确信这里的x是一个非负数，不过，你还是想再做一次检查，这时可以抛出一个异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(x &lt; <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;x &lt; 0&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>但是即使测试完成后，这个代码也会一直保留，如果程序中含有大量类似代码，运行起来就会慢很多。</p>
+<p>断言机制允许在测试期间向程序中插入一些检查，而生产代码中会自动删除这些检查。</p>
+<p>Java语言引入了关键字assert，这个关键字有两种形式：</p>
+<p><code>assert condition</code> 或<code>assert condition:expression</code></p>
+<p>这两个语句都会计算条件，如果结果为false，则会抛出一个AssertionError异常。在第二个语句中，表达式将传入AssertionError构造器，并转换成一个消息字符串。</p>
+<p>想要断言x是一个非负数，只需要使用下面这条语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> x &gt;= <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>或者可以将x的实际值传给AssertionError对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> x &gt;= <span class="number">0</span>: x;</span><br></pre></td></tr></table></figure>
+
+<h6 id="使用断言"><a href="#使用断言" class="headerlink" title="使用断言"></a>使用断言</h6><p>Java中，给出了3种处理系统错误的机制：</p>
+<ul>
+<li>抛出异常</li>
+<li>断言</li>
+<li>日志</li>
+</ul>
+<p>而断言的使用只是在开发与测试阶段，因此，不应该使用断言向程序的其他部分通知发生了可恢复性的错误，或者不应该利用断言与程序用户沟通问题。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OOP/" rel="tag"># OOP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/30/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="prev" title="内部类">
+                  <i class="fa fa-chevron-left"></i> 内部类
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/03/%E6%B3%9B%E5%9E%8B%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" rel="next" title="泛型程序设计">
+                  泛型程序设计 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈旭东</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+	
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
