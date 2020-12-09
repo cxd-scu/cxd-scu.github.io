@@ -32,7 +32,7 @@
 <meta property="og:description" content="Java集合框架Collection接口在Java类库中，集合类的基本接口是Collection接口，这个接口有两个基本方法： 12345public interface Collection&lt;E&gt;&amp;#123;    public add(E ele);    Iterator&lt;E&gt; iterator();    ...&amp;#125;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-04T03:16:51.000Z">
-<meta property="article:modified_time" content="2020-12-05T12:37:00.843Z">
+<meta property="article:modified_time" content="2020-12-09T15:49:53.372Z">
 <meta property="article:author" content="陈旭东">
 <meta property="article:tag" content="OOP">
 <meta name="twitter:card" content="summary">
@@ -189,7 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">Java集合框架</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Collection%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.1.</span> <span class="nav-text">Collection接口</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">泛型实用方法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88"><span class="nav-number">2.</span> <span class="nav-text">具体集合</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">Java集合框架</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Collection%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.1.</span> <span class="nav-text">Collection接口</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">泛型实用方法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88"><span class="nav-number">2.</span> <span class="nav-text">具体集合</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">2.1.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%88%97%E8%A1%A8"><span class="nav-number">2.2.</span> <span class="nav-text">数组列表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E9%9B%86"><span class="nav-number">2.3.</span> <span class="nav-text">散列集</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%91%E9%9B%86"><span class="nav-number">2.4.</span> <span class="nav-text">树集</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%98%9F%E5%88%97%E5%92%8C%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97"><span class="nav-number">2.5.</span> <span class="nav-text">队列和双端队列</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97"><span class="nav-number">2.6.</span> <span class="nav-text">优先级队列</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%A0%E5%B0%84"><span class="nav-number">3.</span> <span class="nav-text">映射</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%98%A0%E5%B0%84%E6%93%8D%E4%BD%9C"><span class="nav-number">3.1.</span> <span class="nav-text">基本映射操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%98%A0%E5%B0%84%E6%9D%A1%E7%9B%AE"><span class="nav-number">3.2.</span> <span class="nav-text">更新映射条目</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%98%A0%E5%B0%84%E8%A7%86%E5%9B%BE"><span class="nav-number">3.3.</span> <span class="nav-text">映射视图</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%B1%E6%95%A3%E5%88%97%E6%98%A0%E5%B0%84"><span class="nav-number">3.4.</span> <span class="nav-text">弱散列映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E6%95%A3%E5%88%97%E9%9B%86%E4%B8%8E%E6%98%A0%E5%B0%84"><span class="nav-number">3.5.</span> <span class="nav-text">链接散列集与映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E9%9B%86%E4%B8%8E%E6%98%A0%E5%B0%84"><span class="nav-number">3.6.</span> <span class="nav-text">枚举集与映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E6%95%A3%E5%88%97%E6%98%A0%E5%B0%84"><span class="nav-number">3.7.</span> <span class="nav-text">标识散列映射</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E4%B8%8E%E5%8C%85%E8%A3%85%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">视图与包装器</span></a></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -298,7 +298,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-05 20:37:00" itemprop="dateModified" datetime="2020-12-05T20:37:00+08:00">2020-12-05</time>
+        <time title="修改时间：2020-12-09 23:49:53" itemprop="dateModified" datetime="2020-12-09T23:49:53+08:00">2020-12-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -392,9 +392,167 @@
 </li>
 <li><p>&lt;T&gt; T[] toArray(T[] arrayToFill) </p>
 <p>返回集合中的对象的数组，若arrayToFill足够大，就填充arrayToFill，剩余空间填补null；否则分配一个新数组</p>
-<h5 id="具体集合"><a href="#具体集合" class="headerlink" title="具体集合"></a>具体集合</h5></li>
+</li>
 </ul>
+<h5 id="具体集合"><a href="#具体集合" class="headerlink" title="具体集合"></a>具体集合</h5><p>下面展示了Java类库中的集合，并简要描述了每个集合类的用途，表中，以Map结尾的实现了Map接口，剩余的则实现了Collection接口。</p>
+<table>
+<thead>
+<tr>
+<th>集合类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ArrayList</td>
+<td>可以动态增长或是缩减的一个索引序列</td>
+</tr>
+<tr>
+<td>LinkedList</td>
+<td>可以在任何位置高效插入或删除的一个有序序列</td>
+</tr>
+<tr>
+<td>ArrayDeque</td>
+<td>实现为循环数组的一个双端队列</td>
+</tr>
+<tr>
+<td>HashSet</td>
+<td>没有重复元素的一个无序集合</td>
+</tr>
+<tr>
+<td>TreeSet</td>
+<td>一个有序集</td>
+</tr>
+<tr>
+<td>EnumSet</td>
+<td>一个包含枚举类型值的集</td>
+</tr>
+<tr>
+<td>LinkedHashSet</td>
+<td>一个可以记住元素插入次序的集</td>
+</tr>
+<tr>
+<td>PriorityQueue</td>
+<td>允许高效删除最小元素的一个集合</td>
+</tr>
+<tr>
+<td>HashMap</td>
+<td>存储键/值关联的一个数据结构</td>
+</tr>
+<tr>
+<td>TreeMap</td>
+<td>键有序地一个映射</td>
+</tr>
+<tr>
+<td>EnumMap</td>
+<td>键属于枚举类型的一个映射</td>
+</tr>
+<tr>
+<td>LinkedHashMap</td>
+<td>可以记住键/值项添加次序的一个映射</td>
+</tr>
+<tr>
+<td>WeakHashMap</td>
+<td>值不会在别处使用时就可以被垃圾回收的一个映射</td>
+</tr>
+<tr>
+<td>IdentityHashMap</td>
+<td>用==而不是equals比较键的一个映射</td>
+</tr>
+</tbody></table>
+<h6 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h6><p>Java集合类库提供了LinkedList类，这是一个有序集合，可以使用LinkedList.add方法将对象添加到列表的尾部，但是，常常需要将元素添加到列表的中央，这种依赖于位置的add方法由迭代器负责，只有对自然有序地集合使用迭代器添加元素才有意义，例如，在集数据类型中，元素是完全无序的，因此，Iterator接口没有add方法。实际上，集合类库提供了一个子接口ListIterator，其中包含add方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ListIterator</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(E element)</span></span>; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 用于反向遍历列表</span></span><br><span class="line">    <span class="function">E <span class="title">previous</span><span class="params">()</span></span>; </span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasPrevious</span><span class="params">()</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>LinkedList类的listIterator方法返回一个实现了ListIterator接口的迭代器对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> staff = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">ListIterator&lt;String&gt; iter = staff.listIterator();</span><br></pre></td></tr></table></figure>
+
+<p>迭代器的set方法会用一个新元素替换调用next或previous方法返回的上一个元素，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iter.next();</span><br><span class="line">iter.set(<span class="string">&quot;a&quot;</span>); <span class="comment">//将字符串a置于倒数第二个位置</span></span><br></pre></td></tr></table></figure>
+
+<p>链表提供了访问特定元素的get方法，但是效率不高，因此，需要按整数索引访问元素时，通常不选用列表。</p>
+<h6 id="数组列表"><a href="#数组列表" class="headerlink" title="数组列表"></a>数组列表</h6><p>集合类库提供了ArrayList类，使用get与set方法可以很方便的进行访问，ArrayList类封装了一个动态再分配的对象数组。</p>
+<p>ArrayList的方法不是同步的，因此，在进行多线程操作时，应使用更加安全的Vector对象。</p>
+<h6 id="散列集"><a href="#散列集" class="headerlink" title="散列集"></a>散列集</h6><p>散列表可以用于快速的查找对象，它会为每个对象计算一个整数，称为散列码，散列码是由对象的实例字段得出的一个整数，更准确地说，有不同数据的对象将产生不同的散列码。</p>
+<p>在Java中，散列表用链表数组实现。每个列表称为桶，想要查找表中对象的位置，就先计算它的散列码，然后与桶的总数取余，所得到的结果就是保存这个元素的桶的索引。如果遇到桶已经被填充的情况，就需要将新对象与桶中的所有对象比较，检测这个对象是否已经存在。</p>
+<p>通常，将桶数设为预计元素个数的75%~150%。当然，如果遇到散列表太满的情况，就需要进行再散列，这时需要创建一个桶数更多的表，并将所有元素插入新表，然后丢弃原来的表。</p>
+<p>Java集合类库提供了HashSet类，它实现了基于散列表的集，可以用add方法添加元素，也可以使用contains方法，来快速查找某个元素是否已经在集中。</p>
+<p>散列集迭代器将依次访问1所有的桶，由于散列将元素分布在表中，所以会以一种看起来随机的顺序访问元素，因而，只有不关心集合中元素的顺序时才应该使用HashSet。</p>
+<h6 id="树集"><a href="#树集" class="headerlink" title="树集"></a>树集</h6><p>TreeSet类与散列集十分类似，不过它有所改进。树集是一个有序集合，可以以任意顺序插入元素。在对集合进行遍历时，值会自动地按照排序后的顺序呈现，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeSetTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        TreeSet&lt;String&gt; s = <span class="keyword">new</span> TreeSet&lt;&gt;();</span><br><span class="line">        s.add(<span class="string">&quot;bob&quot;</span>);</span><br><span class="line">        s.add(<span class="string">&quot;alice&quot;</span>);</span><br><span class="line">        s.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(String item: s)</span><br><span class="line">            System.out.print(item+<span class="string">&quot; &quot;</span>);</span><br><span class="line">        <span class="comment">// 输出a alice bob</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正如TreeSet类名所示，排序是使用树状结构完成的（红黑树）。每将一个元素添加到树中时，都会将其放置在正确的排序位置上。因此，迭代器总是以有序地顺序访问每个元素。</p>
+<p>将一个元素添加到树中要比添加到散列表慢，但是，与检查数组或链表中的重复元素相比，使用树会快很多。</p>
+<h6 id="队列和双端队列"><a href="#队列和双端队列" class="headerlink" title="队列和双端队列"></a>队列和双端队列</h6><p>队列允许高效的在尾部添加元素，并在头部删除元素；双端队列允许在头部和尾部都高效的添加或删除元素。但不支持在队列中间添加元素，队列实现的是Queue接口，双端队列实现的则是Deque接口。</p>
+<h6 id="优先级队列"><a href="#优先级队列" class="headerlink" title="优先级队列"></a>优先级队列</h6><p>优先队列中的元素可以按照任意的顺序插入，但会按照有序地顺序进行检索。也就是说，无论何时调用remove方法，总会获得当前优先队列中最小的元素，不过，优先队列并没有对所有元素进行排序，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PriorityQueueTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        PriorityQueue&lt;String&gt; s = <span class="keyword">new</span> PriorityQueue&lt;&gt;();</span><br><span class="line">        s.add(<span class="string">&quot;bob&quot;</span>);</span><br><span class="line">        s.add(<span class="string">&quot;alice&quot;</span>);</span><br><span class="line">        s.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">        System.out.println(s); <span class="comment">//[a, bob, alice]</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(!s.isEmpty())</span><br><span class="line">            System.out.println(s.remove()); <span class="comment">//a alice bob</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>与TreeSet一样，优先队列即可以保存实现了Comparable接口的类对象，也可以保存构造器中提供的Comparator对象。</p>
+<h5 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h5><p>当我们知道某些关键信息，希望查找与之关联的元素时，就要使用到映射。映射用来存放键/值对，如果提供了键，就可以查找到值。例如，可以存储一个员工记录表，其中键为员工ID，值为Employee对象。</p>
+<h6 id="基本映射操作"><a href="#基本映射操作" class="headerlink" title="基本映射操作"></a>基本映射操作</h6><p>Java类库为映射提供了两个通用的实现：HashMap与TreeMap。这两个类都实现了Map接口。</p>
+<p>散列映射对键进行散列，树映射根据键的顺序将元素组织成一个搜索树。散列或比较函数只应用于键，与键关联的值不进行散列或比较。</p>
+<p>下面代码将建立一个散列映射来存储员工信息：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> staff = <span class="keyword">new</span> HashMap&lt;String, Employee&gt;();</span><br><span class="line"><span class="keyword">var</span> harry = <span class="keyword">new</span> Employee(...);</span><br><span class="line">staff.put(<span class="string">&quot;123&quot;</span>, harry);</span><br></pre></td></tr></table></figure>
+
+<p>每向映射中添加一个对象时，必须同时提供一个键。同样，想要检索一个对象，必须使用键：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Employee e = staff.get(<span class="string">&quot;123&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如果映射中没有存储与给定键值对应的信息，get将返回null，也可以通过getOrDefault方法设置一个默认值：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Employee t = staff.getOrDefault(<span class="string">&quot;234&quot;</span>, <span class="keyword">new</span> Employee(...));</span><br></pre></td></tr></table></figure>
+
+<p>键必须是唯一的，不能对同一个键存放两个值。如果对同一个键调用两次put方法，第二个值就会取代第一个值。实际上，put将返回与这个键参数关联的上一个值。</p>
+<p>remove方法从映射中删除给定键对应的元素。size方法返回映射中的元素数。</p>
+<p>要迭代处理映射的键和值，最容易的方法是使用forEach方法。可以提供一个接受键和值的lambda表达式，映射中的每一项都会依次调用这个表达式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">staff.forEach((k, v)-&gt;</span><br><span class="line">             System.out.println(k+v));</span><br></pre></td></tr></table></figure>
+
+<h6 id="更新映射条目"><a href="#更新映射条目" class="headerlink" title="更新映射条目"></a>更新映射条目</h6><p>处理映射的一个难点就是更新映射条目，正常情况下，可以得到一个与键关联的一个原值，完成更新，再放回更新后的值。不过，键也有可能是第一次出现。例如，在使用映射统计单词在文件中出现的频率时，每看到一个单词，就将计数器加一：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">counts.put(word, counts.get(word) + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>但是如果这个单词是第一次出现，get方法就会抛出异常。</p>
+<p>一种简单的补救就是getOrDefault方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">counts.put(word, counts.getOrDefault(word, <span class="number">0</span>) + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>另一种方法就是调用putIfAbsent方法。只有当键原先存在时才会放入另一个值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">counts.putIfAbsent(word, <span class="number">0</span>);</span><br><span class="line">counts.put(word, counts.get(word) + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>更好的方法则是调用merge方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">counts.merge(word, <span class="number">1</span>, Integer::sum);</span><br></pre></td></tr></table></figure>
+
+<p>如果键原先不存在，就将word与1关联，否则使用Integer::sum函数组合原值与1。</p>
+<h6 id="映射视图"><a href="#映射视图" class="headerlink" title="映射视图"></a>映射视图</h6><p>可以得到映射的视图，即实现了Collection接口或某个字接口的对象。</p>
+<p>有三种视图，键集，值集合（不是一个集）以及键/值对集。下面的方法将分别返回这三个视图：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Set&lt;K&gt; <span class="title">keySet</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">Collection&lt;V&gt; <span class="title">values</span><span class="params">()</span></span>;</span><br><span class="line">Set&lt;Map.Entry&lt;K, V&gt;&gt; entrySet();</span><br></pre></td></tr></table></figure>
+
+<p>如果想同时查看键和值，可以通过枚举映射条目来避免查找值：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Map.Entry&lt;String, Employee&gt;&gt; entry: staff.entrySet())&#123;</span><br><span class="line">    String key = entry.getKey();</span><br><span class="line">    Employee val = entry.getValue();</span><br><span class="line">    <span class="comment">// do something </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果在键集视图上调用迭代器的remove方法，实际上会从映射中删除这个键和它关联的值，但是不能向键集视图添加元素。</p>
+<h6 id="弱散列映射"><a href="#弱散列映射" class="headerlink" title="弱散列映射"></a>弱散列映射</h6><p>如果有一个值，它对应的键已经不在程序的任何地方使用，但是，由于程序中的任何部分都不会再有这个键，所以，无法从映射中删除这个键/值对。  这时，就需要使用WeakHashMap，当对键的唯一引用来自散列表映射条目时，这个数据结构将与垃圾回收器协同工作一起删除键/值对。</p>
+<h6 id="链接散列集与映射"><a href="#链接散列集与映射" class="headerlink" title="链接散列集与映射"></a>链接散列集与映射</h6><p>LinkedHashSet与LinkedHashMap类会记住插入元素项的顺序。这样就可以避免散列表中的项看起来顺序是随机的。</p>
+<p>例如，考虑下面的映射：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> staff = <span class="keyword">new</span> LinkedHashMap&lt;String, String&gt;();</span><br><span class="line">staff.put(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;alice&quot;</span>);</span><br><span class="line">staff.put(<span class="string">&quot;2&quot;</span>, <span class="string">&quot;bob&quot;</span>);</span><br><span class="line">staff.put(<span class="string">&quot;3&quot;</span>, <span class="string">&quot;carl&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>staff.keySet().iterator()</code>将以下面的次序枚举键：</p>
+<p>1 2 3</p>
+<p><code>staff.values().iterator()</code>将以下面的次序枚举值：</p>
+<p>alice bob carl</p>
+<p>或者，链接散列映射可以使用访问顺序而不是插入顺序来迭代处理映射条目。每次调用get或put时，受到影响的项将从当前位置删除，并放到项链表的尾部，构造这样的散列映射，需要调用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LinkedHashMap&lt;K, V&gt;(initialCapacity, load_factor, <span class="keyword">true</span>)</span><br></pre></td></tr></table></figure>
+
+<p>可以自定义置换的过程，只需要构造LinkedHashMap的子类，然后覆盖下面的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">removeEldestEntry</span><span class="params">(Map.entry&lt;K, V&gt; eldest)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>每当该方法返回true时，添加一个新的映射条目就会导致删除eldest项。</p>
+<h6 id="枚举集与映射"><a href="#枚举集与映射" class="headerlink" title="枚举集与映射"></a>枚举集与映射</h6><p>EnumSet是一个枚举类型元素集的高效实现，该类没有公共的构造器，要使用静态工厂方法构造这个集：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PriorityQueueTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">weekDay</span> </span>&#123;MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        EnumSet&lt;weekDay&gt; s1 = EnumSet.allOf(weekDay.class);</span><br><span class="line">        EnumSet&lt;weekDay&gt; s2 = EnumSet.noneOf(weekDay.class);</span><br><span class="line">        EnumSet&lt;weekDay&gt; s3 = EnumSet.range(weekDay.MONDAY, weekDay.SATURDAY);</span><br><span class="line">        EnumSet&lt;weekDay&gt; s4 = EnumSet.of(weekDay.MONDAY, weekDay.WEDNESDAY);</span><br><span class="line"></span><br><span class="line">        System.out.println(s1);</span><br><span class="line">        System.out.println(s2);</span><br><span class="line">        System.out.println(s3);</span><br><span class="line">        System.out.println(s4);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的输出为</p>
+<p><strong>[MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY]</strong><br><strong>[]</strong><br><strong>[MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY]</strong><br><strong>[MONDAY, WEDNESDAY]</strong></p>
+<p>可以使用Set接口的常用方法来修改EnumSet。</p>
+<p>EnumMap是一个键类型为枚举类型的映射，它可以直接而高效的实现为一个值数组。但需要在构造器中指定键类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> day = <span class="keyword">new</span> EnumMap&lt;weekDay, String&gt;(weekDay.class);</span><br><span class="line">day.put(weekDay.MODDAY, <span class="string">&quot;周一&quot;</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h6 id="标识散列映射"><a href="#标识散列映射" class="headerlink" title="标识散列映射"></a>标识散列映射</h6><p>类IdentityHashMap有特殊的用途，在这个类中，键的散列值不使用hashCode函数计算，而是使用了System.identityHashCode方法，而且在对两个对象进行比较时，IdentityHashMap类使用==，而不是equals。</p>
+<p>也就是说，不同的键对象即使内容相同，也会被视为不同的对象。在实现对象遍历算法（如对象串行化）时，这个类非常有用，可以用来追踪哪些对象已经遍历过。</p>
+<h5 id="视图与包装器"><a href="#视图与包装器" class="headerlink" title="视图与包装器"></a>视图与包装器</h5>
     </div>
 
     
