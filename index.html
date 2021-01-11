@@ -146,7 +146,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">10</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -199,7 +199,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -260,6 +260,204 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.gif">
+      <meta itemprop="name" content="陈旭东">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XDBLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/11/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">字符串</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-01-11 10:11:46 / 修改时间：11:04:33" itemprop="dateCreated datePublished" datetime="2021-01-11T10:11:46+08:00">2021-01-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>sJava字符串就是Unicode字符序列。但Java没有内置的字符串类型，而是在标准Java类库中提供了一个预定义类叫做String，每一个用双引号括起来的字符串都是String类的一个实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String greet = <span class="string">&quot;Hello World&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h6 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h6><p>String类的subString方法可以从一个较大的字符串提取出一个字串，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String sub = greet.subString(<span class="number">0</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>字符串sub的内容是”gre”。subString方法的第二个参数是不想复制的第一个位置，因此这里复制的是位置0， 1， 2处的字符。</p>
+<p>subString方法有一个优点，容易计算子串的长度，字符串 <code>s.subString(a, b);</code>的长度极为b-a。</p>
+<h6 id="拼接"><a href="#拼接" class="headerlink" title="拼接"></a>拼接</h6><p>Java语言允许使用+连接两个字符串，例如，下面的实例会将值”Hello World”赋给变量greet:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String h = <span class="string">&quot;Hello &quot;</span>;</span><br><span class="line">String w = <span class="string">&quot;World&quot;</span>;</span><br><span class="line">String greet = h + w;</span><br></pre></td></tr></table></figure>
+
+<p>当一个字符串与一个非字符串的值进行拼接时，后者会被转换为字符串， 例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age = <span class="number">13</span>;</span><br><span class="line">String me = <span class="string">&quot;I&#x27;m &quot;</span> + age;</span><br></pre></td></tr></table></figure>
+
+<p>这里会将me的值设为”I’m 13”。</p>
+<p>如果需要把多个字符串放在一起，用一个界定符分隔，可以使用静态join方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String all = String.join(<span class="string">&quot;/&quot;</span>, <span class="string">&quot;S&quot;</span>, <span class="string">&quot;M&quot;</span>, <span class="string">&quot;L&quot;</span>, <span class="string">&quot;XL&quot;</span>);</span><br><span class="line"><span class="comment">//  all的值为&quot;S/M/L/XL&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>在Java11中，提供了一个repeat方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String repeated = <span class="string">&quot;Java&quot;</span>.repeat(<span class="number">3</span>);</span><br><span class="line"><span class="comment">//  repeated的值为&quot;JavaJavaJava&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="不可变字符串"><a href="#不可变字符串" class="headerlink" title="不可变字符串"></a>不可变字符串</h6><p>String类没有提供修改字符串中某个字符的方法。如果希望将greet中的内容修改为”HelloWorld”，不可以直接删除空格。</p>
+<p>由于不可以直接修改Java字符串中的单个字符，所以Java文档将String类对象称为是不可变的。就像数字3是3一样，字符串”Hello”也永远包含H,e,l,l,o的代码单元，不可以直接修改这些值，但是可以修改字符串变量greet，让它引用另外一个字符串，就像原本存放3的数值变量可以改为存放4一样。</p>
+<h6 id="检测字符串是否相等"><a href="#检测字符串是否相等" class="headerlink" title="检测字符串是否相等"></a>检测字符串是否相等</h6><p>可以使用equals方法检测两个字符串是否相等，如果不区分大小写，则可以使用equalsIgnoreCase方法。</p>
+<p>不可以使用 == 运算符检测两个字符串是否相等，这个运算符只能检测两个字符串是否存放在同一个位置上。</p>
+<h6 id="构建字符串"><a href="#构建字符串" class="headerlink" title="构建字符串"></a>构建字符串</h6><p>有时需要以较短的字符串构建字符串，如果采用字符串拼接的方式来达到这个目的，效率就会很低，这时就需要使用StringBuilder类。</p>
+<p>如果需要使用许多小段的字符串来构建一个字符串，应当按照以下步骤进行。首先，构建一个空的字符串构建器：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder builder = <span class="keyword">new</span> StringBulder();</span><br></pre></td></tr></table></figure>
+
+<p>每当需要添加一部分内容时，就调用append方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">builder.append(<span class="string">&quot;Hello &quot;</span>);</span><br><span class="line">builder.append(<span class="string">&quot;World&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>字符串构建完成后调用toString方法，就可以得到一个String对象，其中包含了构建器中所有的字符序列：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String greet = builder.toString();</span><br><span class="line"><span class="comment">//  greet的值为&quot;Hello World&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>StringBuilder类在Java5引入，这个类的前身是StringBuffer，它的效率稍有些低，但允许使用多线程的方式添加或删除字符。这两个类的API是一样的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/11/%E5%B9%B6%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.gif">
+      <meta itemprop="name" content="陈旭东">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XDBLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/11/%E5%B9%B6%E5%8F%91/" class="post-title-link" itemprop="url">并发</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-11 10:04:04" itemprop="dateCreated datePublished" datetime="2020-12-11T10:04:04+08:00">2020-12-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-11 10:10:25" itemprop="dateModified" datetime="2021-01-11T10:10:25+08:00">2021-01-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>多线程程序扩展了多任务的概念：单个程序看起来在同时完成多个任务，每个任务在一个线程中执行，线程就是控制线程的简称。如果一个程序可以同时运行多个线程，则称这个程序是多线程的。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/11/%E5%B9%B6%E5%8F%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/04/%E9%9B%86%E5%90%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -292,7 +490,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-09 23:49:53" itemprop="dateModified" datetime="2020-12-09T23:49:53+08:00">2020-12-09</time>
+        <time title="修改时间：2020-12-10 17:18:30" itemprop="dateModified" datetime="2020-12-10T17:18:30+08:00">2020-12-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -962,180 +1160,11 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/13/JS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.gif">
-      <meta itemprop="name" content="陈旭东">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XDBLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/13/JS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">JS的事件处理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-13 17:36:01 / 修改时间：21:28:15" itemprop="dateCreated datePublished" datetime="2020-11-13T17:36:01+08:00">2020-11-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
 
   
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在学习JavaScript的事件处理知识的时候，感觉这一部分的内容比较分散，特此整理一下自己的学习过程。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/13/JS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/11/%E5%B0%8F%E6%B8%B8%E6%88%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.gif">
-      <meta itemprop="name" content="陈旭东">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XDBLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/11/%E5%B0%8F%E6%B8%B8%E6%88%8F/" class="post-title-link" itemprop="url">网页小游戏</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-11 21:30:56" itemprop="dateCreated datePublished" datetime="2020-11-11T21:30:56+08:00">2020-11-11</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-13 17:49:20" itemprop="dateModified" datetime="2020-11-13T17:49:20+08:00">2020-11-13</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>使用Javascript与HTML开发的网页小游戏，玩家吃完金币即可进入下一关。</p>
-<p>阅读《Javascript编程精解》后依据书上的项目例子开发。</p>
-<p>基于基本的DOM开发，各种颜色都是通过CSS直接设置。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/11/%E5%B0%8F%E6%B8%B8%E6%88%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1175,7 +1204,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

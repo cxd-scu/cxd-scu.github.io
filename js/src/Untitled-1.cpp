@@ -1,73 +1,86 @@
 #include <iostream>
+#include <queue>
 #include <vector>
 
 using namespace std;
 
-bool isPrime(int n)
-{
-	//判断一个数是否是素数
-	for (int i = 2; i < n / 2; i++)
-	{
-		if (n % i == 0)
-			return false;
-	}
-	return true;
-}
-void trace(vector<int> curCircle, vector<int> left, vector<vector<int>> &results)
-{
-	if (left.size() == 1)
-	{ //素数环最后一环
-		if (isPrime(left[0] + curCircle[curCircle.size() - 1]) && isPrime(left[0] + 1))
-		{
-			//是否构成环
-			curCircle.push_back(left[0]);
-			results.push_back(curCircle);
-		}
-		return;
-	}
-	else
-	{
-		int endNum = curCircle[curCircle.size() - 1];
-		for (int i = 0; i < left.size(); i++)
-		{
-			//判断剩余的数字与当前环中最后一个数字之和是否为素数
-			if (isPrime(left[i] + endNum))
-			{
-				int curNum = left[i];
-				left.erase(left.begin() + i);
-				curCircle.push_back(curNum);
-				trace(curCircle, left, results);
-				curCircle.pop_back();
-				left.insert(left.begin() + i, curNum);
-			}
-		}
-	}
-}
-vector<vector<int>> primeCircle(int n)
-{
-	vector<int> curCircle; //当前环
-	vector<int> left;	   //未使用的数字
+class Node
+{ //数据节点类
+public:
+	int weight;		   //重量
+	int value;		   //价值
+	int upperBound;	   //上界
+	int level;		   //当前判断层次
+	vector<int> trace; //路径
 
-	//初始化
-	curCircle.push_back(1);
-	for (int i = 1; i < n; i++)
+	Node(int weight, int value, int upperBound, int level, vector<int> trace)
 	{
-		left.push_back(i + 1);
+		this->weight = weight;
+		this->value = value;
+		this->upperBound = upperBound;
+		this->level = level;
+		this->trace = trace;
 	}
-	vector<vector<int>> results; //结果
-	trace(curCircle, left, results);
-	return results;
-}
+};
+class Problem
+{ //问题类
+public:
+	int *weights; //权重数组
+	int *values;  //价值数组
+	int CAPACITY; //容量
+	int LEVEL;	  //物品数量
+	vector<Node> result;
+	void input()
+	{ //处理输入
+		cin >> LEVEL;
+		weights = new int[LEVEL];
+		values = new int[LEVEL];
+		for (unsigned int i = 0; i < LEVEL; i++)
+			cin >> weights[i];
+		for (unsigned int i = 0; i < LEVEL; i++)
+			cin >> values[i];
+		cin >> CAPACITY;
+		vector<int> trace;
 
+		Node root(0, 0, CAPACITY, 0, trace);
+		generateNode(root);
+	}
+	void output()
+	{ //按要求输出
+		Node cur = result[0];
+		for (unsigned int i = 1; i < result.size(); i++)
+			if (cur.value < result[i].value)
+				cur = result[i];
+		for (unsigned int i = 0; i < cur.trace.size(); i++)
+			cout << cur.trace[i] << " ";
+		cout << endl
+			 << cur.value << endl;
+	}
+	void generateNode(Node node)
+	{
+		vector<int> nodeTrace = node.trace;
+		nodeTrace.push_back(0);
+		vector<int> leftTrace = nodeTrace;
+		nodeTrace.pop_back();
+		nodeTrace.push_back(1);
+		vector<int> rightTrace = nodeTrace;
+
+		int curLevel = node.level;
+		if (curLevel == LEVEL) //判断叶节点
+			result.push_back(node);
+		else
+		{
+			Node left(node.weight, node.value, node.upperBound, node.level + 1, leftTrace);
+			Node right(node.weight + weights[curLevel], node.value + values[curLevel], node.upperBound - weights[curLevel], node.level + 1, rightTrace);
+			generateNode(left);		   //生成节点
+			if (right.upperBound >= 0) //剪枝
+				generateNode(right);
+		}
+	}
+};
 int main()
 {
-	int n = 0;
-	cin >> n;
-	vector<vector<int>> results = primeCircle(n);
-	for (int i = 0; i < results.size(); i++)
-	{
-		for (int j = 0; j < results[i].size(); j++)
-			cout << results[i][j] << " ";
-		cout << endl;
-	}
+	Problem p;
+	p.input();
+	p.output();
 }

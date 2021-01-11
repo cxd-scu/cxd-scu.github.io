@@ -32,7 +32,7 @@
 <meta property="og:description" content="Java集合框架Collection接口在Java类库中，集合类的基本接口是Collection接口，这个接口有两个基本方法： 12345public interface Collection&lt;E&gt;&amp;#123;    public add(E ele);    Iterator&lt;E&gt; iterator();    ...&amp;#125;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-04T03:16:51.000Z">
-<meta property="article:modified_time" content="2020-12-09T15:49:53.372Z">
+<meta property="article:modified_time" content="2020-12-10T09:18:30.773Z">
 <meta property="article:author" content="陈旭东">
 <meta property="article:tag" content="OOP">
 <meta name="twitter:card" content="summary">
@@ -151,7 +151,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">10</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -189,7 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">Java集合框架</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Collection%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.1.</span> <span class="nav-text">Collection接口</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">泛型实用方法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88"><span class="nav-number">2.</span> <span class="nav-text">具体集合</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">2.1.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%88%97%E8%A1%A8"><span class="nav-number">2.2.</span> <span class="nav-text">数组列表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E9%9B%86"><span class="nav-number">2.3.</span> <span class="nav-text">散列集</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%91%E9%9B%86"><span class="nav-number">2.4.</span> <span class="nav-text">树集</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%98%9F%E5%88%97%E5%92%8C%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97"><span class="nav-number">2.5.</span> <span class="nav-text">队列和双端队列</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97"><span class="nav-number">2.6.</span> <span class="nav-text">优先级队列</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%A0%E5%B0%84"><span class="nav-number">3.</span> <span class="nav-text">映射</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%98%A0%E5%B0%84%E6%93%8D%E4%BD%9C"><span class="nav-number">3.1.</span> <span class="nav-text">基本映射操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%98%A0%E5%B0%84%E6%9D%A1%E7%9B%AE"><span class="nav-number">3.2.</span> <span class="nav-text">更新映射条目</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%98%A0%E5%B0%84%E8%A7%86%E5%9B%BE"><span class="nav-number">3.3.</span> <span class="nav-text">映射视图</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%B1%E6%95%A3%E5%88%97%E6%98%A0%E5%B0%84"><span class="nav-number">3.4.</span> <span class="nav-text">弱散列映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E6%95%A3%E5%88%97%E9%9B%86%E4%B8%8E%E6%98%A0%E5%B0%84"><span class="nav-number">3.5.</span> <span class="nav-text">链接散列集与映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E9%9B%86%E4%B8%8E%E6%98%A0%E5%B0%84"><span class="nav-number">3.6.</span> <span class="nav-text">枚举集与映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E6%95%A3%E5%88%97%E6%98%A0%E5%B0%84"><span class="nav-number">3.7.</span> <span class="nav-text">标识散列映射</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E4%B8%8E%E5%8C%85%E8%A3%85%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">视图与包装器</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">Java集合框架</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Collection%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.1.</span> <span class="nav-text">Collection接口</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">泛型实用方法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88"><span class="nav-number">2.</span> <span class="nav-text">具体集合</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">2.1.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%88%97%E8%A1%A8"><span class="nav-number">2.2.</span> <span class="nav-text">数组列表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E9%9B%86"><span class="nav-number">2.3.</span> <span class="nav-text">散列集</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%91%E9%9B%86"><span class="nav-number">2.4.</span> <span class="nav-text">树集</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%98%9F%E5%88%97%E5%92%8C%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97"><span class="nav-number">2.5.</span> <span class="nav-text">队列和双端队列</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97"><span class="nav-number">2.6.</span> <span class="nav-text">优先级队列</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%A0%E5%B0%84"><span class="nav-number">3.</span> <span class="nav-text">映射</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%98%A0%E5%B0%84%E6%93%8D%E4%BD%9C"><span class="nav-number">3.1.</span> <span class="nav-text">基本映射操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%98%A0%E5%B0%84%E6%9D%A1%E7%9B%AE"><span class="nav-number">3.2.</span> <span class="nav-text">更新映射条目</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%98%A0%E5%B0%84%E8%A7%86%E5%9B%BE"><span class="nav-number">3.3.</span> <span class="nav-text">映射视图</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%B1%E6%95%A3%E5%88%97%E6%98%A0%E5%B0%84"><span class="nav-number">3.4.</span> <span class="nav-text">弱散列映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E6%95%A3%E5%88%97%E9%9B%86%E4%B8%8E%E6%98%A0%E5%B0%84"><span class="nav-number">3.5.</span> <span class="nav-text">链接散列集与映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E9%9B%86%E4%B8%8E%E6%98%A0%E5%B0%84"><span class="nav-number">3.6.</span> <span class="nav-text">枚举集与映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E6%95%A3%E5%88%97%E6%98%A0%E5%B0%84"><span class="nav-number">3.7.</span> <span class="nav-text">标识散列映射</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E4%B8%8E%E5%8C%85%E8%A3%85%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">视图与包装器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B0%8F%E9%9B%86%E5%90%88"><span class="nav-number">4.1.</span> <span class="nav-text">小集合</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AD%90%E8%8C%83%E5%9B%B4"><span class="nav-number">4.2.</span> <span class="nav-text">子范围</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%8D%E5%8F%AF%E4%BF%AE%E6%94%B9%E7%9A%84%E8%A7%86%E5%9B%BE"><span class="nav-number">4.3.</span> <span class="nav-text">不可修改的视图</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE"><span class="nav-number">4.4.</span> <span class="nav-text">同步视图</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E5%9E%8B%E8%A7%86%E5%9B%BE"><span class="nav-number">4.5.</span> <span class="nav-text">检查型视图</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%B7%B7%E6%8E%92"><span class="nav-number">5.1.</span> <span class="nav-text">排序与混排</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">5.2.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E4%B8%8E%E6%95%B0%E7%BB%84%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">5.3.</span> <span class="nav-text">集合与数组的转换</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -205,7 +205,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -298,7 +298,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-09 23:49:53" itemprop="dateModified" datetime="2020-12-09T23:49:53+08:00">2020-12-09</time>
+        <time title="修改时间：2020-12-10 17:18:30" itemprop="dateModified" datetime="2020-12-10T17:18:30+08:00">2020-12-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -552,7 +552,92 @@
 
 <h6 id="标识散列映射"><a href="#标识散列映射" class="headerlink" title="标识散列映射"></a>标识散列映射</h6><p>类IdentityHashMap有特殊的用途，在这个类中，键的散列值不使用hashCode函数计算，而是使用了System.identityHashCode方法，而且在对两个对象进行比较时，IdentityHashMap类使用==，而不是equals。</p>
 <p>也就是说，不同的键对象即使内容相同，也会被视为不同的对象。在实现对象遍历算法（如对象串行化）时，这个类非常有用，可以用来追踪哪些对象已经遍历过。</p>
-<h5 id="视图与包装器"><a href="#视图与包装器" class="headerlink" title="视图与包装器"></a>视图与包装器</h5>
+<h5 id="视图与包装器"><a href="#视图与包装器" class="headerlink" title="视图与包装器"></a>视图与包装器</h5><p>可以使用视图获得其他实现了Collection接口或Map接口的对象，例如映射类的keySet方法，keySet方法返回一个实现了Set接口的类对象，由这个类的方法操纵原映射，这种集合称为视图。</p>
+<h6 id="小集合"><a href="#小集合" class="headerlink" title="小集合"></a>小集合</h6><p>Java9引入了一些静态方法，可以生成给定元素的集或列表，以及给定键/值对的映射，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; names = List.of(<span class="string">&quot;alice&quot;</span>, <span class="string">&quot;bob&quot;</span>, <span class="string">&quot;carl&quot;</span>);</span><br><span class="line">Set&lt;Integer&gt; nums = Set.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>对于映射，需要指定键和值：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; scores = Map.of(<span class="string">&quot;alice&quot;</span>, <span class="number">1</span>, <span class="string">&quot;bob&quot;</span>, <span class="number">2</span>, <span class="string">&quot;carl&quot;</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>元素，键或值不能为null。</p>
+<p>List和Set接口有11个方法，分别有0-10个参数，另外还有一个参数可变的of方法。提供这种特定性是为了提高效率。</p>
+<p>对于Map接口，则无法提供一个参数可变的版本，因为参数类型会在键与值的类型之间交替。不过它有一个静态方法ofEntries，能接受任意多个Map.Entry&lt;K, V&gt;对象，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; scores = Map.ofEntries(Map.entry(<span class="string">&quot;alice&quot;</span>, <span class="number">1</span>), Map.entry(<span class="string">&quot;bob&quot;</span>, <span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+
+<p>of与ofEntries方法可以生成某些类的对象，这些类对于每个元素会有一个实例变量，或者有一个后备数组提供支持。</p>
+<p>这些集合对象是不可修改的。如果试图改变，会导致一个UnsupportedOperationException异常。</p>
+<p>如果需要一个可更改的集合，可以把这个不可修改集合传递到构造器：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> names = <span class="keyword">new</span> ArrayList&lt;String&gt;(List.of(<span class="string">&quot;alice&quot;</span>, <span class="string">&quot;bob&quot;</span>, <span class="string">&quot;carl&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>以下的方法调用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collections.nCopies(n, anObject);</span><br></pre></td></tr></table></figure>
+
+<p>会返回一个实现了List接口的不可变的对象，但不是n个元素，每个元素返回一个anObject，事实上，这个对象仅存储了一次。</p>
+<h6 id="子范围"><a href="#子范围" class="headerlink" title="子范围"></a>子范围</h6><p>可以为很多集合建立子范围视图，例如，假设有一个列表staff，想从中获取10~19个元素，就可以使用subList方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Employee&gt; group = staff.subList(<span class="number">10</span>, <span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+<p>第一个索引包含在内，第二个索引则不包含。</p>
+<p>可以对子范围应用任何操作，而且操作会自动反映到整个列表，例如，可以删除整个子范围：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">group.clear();</span><br></pre></td></tr></table></figure>
+
+<p>对于有序集和映射，可以使用排序顺序而不是元素位置建立子范围，SortedSet接口声明了三个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">SortedSet&lt;E&gt; <span class="title">subSet</span><span class="params">(E from, E to)</span></span></span><br><span class="line"><span class="function">SortedSet&lt;E&gt; <span class="title">headSet</span><span class="params">(E to)</span></span></span><br><span class="line"><span class="function">SortedSet&lt;E&gt; <span class="title">tailSet</span><span class="params">(E from)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>这些方法将返回大于等于from且小于to的所有元素构成的子集。有序映射也有类似的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">SortedMap&lt;K, V&gt; <span class="title">subMap</span><span class="params">(K from, K to)</span></span></span><br><span class="line"><span class="function">SortedMap&lt;K, V&gt; <span class="title">headMap</span><span class="params">(K to)</span></span></span><br><span class="line"><span class="function">SortedMap&lt;K, V&gt; <span class="title">tailMap</span><span class="params">(K from)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>这些方法会返回映射视图，该映射包含键落在指定范围内的所有元素。</p>
+<p>Java6引入的NavigableSet接口允许更多的控制这些子范围操作，可以指定是否包括边界：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">NavigableSet&lt;E&gt; <span class="title">subSet</span><span class="params">(E from, <span class="keyword">boolean</span> fromInclusive, E to, <span class="keyword">boolean</span> toInclusive)</span></span></span><br><span class="line"><span class="function">NavigableSet&lt;E&gt; <span class="title">headSet</span><span class="params">(E to, <span class="keyword">boolean</span> toInclusive)</span></span></span><br><span class="line"><span class="function">NavigableSet&lt;E&gt; <span class="title">tailSet</span><span class="params">(E from, <span class="keyword">boolean</span> fromInclusive)</span></span></span><br></pre></td></tr></table></figure>
+
+<h6 id="不可修改的视图"><a href="#不可修改的视图" class="headerlink" title="不可修改的视图"></a>不可修改的视图</h6><p>Collections类还有几个方法，可以生成集合的不可修改视图，这些视图对现有的集合增加了一个运行时检查。如果发现试图对集合进行修改，就抛出一个异常，集合仍保持不变。</p>
+<p>可以使用下面八个方法来获得不可修改视图：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Collections.unmodifiableCollection</span><br><span class="line">Collections.unmodifiableList</span><br><span class="line">Collections.unmodifiableSet</span><br><span class="line">Collections.unmodifiableSortedSet</span><br><span class="line">Collections.unmodifiableNavigableSet</span><br><span class="line">Collections.unmodifiableMap</span><br><span class="line">Collections.unmodifiableSortedMap</span><br><span class="line">Collections.unmodifiableNavigableMap</span><br></pre></td></tr></table></figure>
+
+<p>每个方法都定义处理一个接口，假设想要你的代码查看（但不能修改）一个集合的内容，就可以进行以下操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> staff = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">...</span><br><span class="line">lookat(Collections.unmodifiableList(staff));</span><br></pre></td></tr></table></figure>
+
+<p>Collections.unmodifiableList方法将返回一个实现了List接口的类对象，其访问器方法将从staff集合获取值。但lookat方法调用更改器方法时，会抛出异常而不是将调用传给底层集合。</p>
+<p>不可修改视图并非集合本身不可修改，仍然可以通过集合的原始引用对集合进行修改或调用更改器方法。</p>
+<h6 id="同步视图"><a href="#同步视图" class="headerlink" title="同步视图"></a>同步视图</h6><p>如果从多个线程访问集合，就必须确保集合不会被意外破坏。类库的设计者使用视图机制来确保常规集合是线程安全的，而没有实现线程安全的集合类。例如，Collections类的静态方法synchronizedMap方法可以将任何一个映射转换成有同步访问方法的Map：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> map = Collections.synchronizedMap(<span class="keyword">new</span> HashMap&lt;Integer, String&gt;());</span><br></pre></td></tr></table></figure>
+
+<h6 id="检查型视图"><a href="#检查型视图" class="headerlink" title="检查型视图"></a>检查型视图</h6><p>检查型视图用来对泛型类型可能出现的问题提供调试支持。实际中，将错误类型的元素混入泛型集合中的情况极有可能发生，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">ArrayList raw = str; <span class="comment">//warning</span></span><br><span class="line">raw.add(<span class="keyword">new</span> Date()); </span><br></pre></td></tr></table></figure>
+
+<p>这个错误的add命令在运行时检测不到，只有在另一部分代码调用get方法时，才会出现一个强制转换异常，检查型视图可以探测这类问题，下面定义了一个安全列表：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; safe = Collections.checkedList(str, String.class);</span><br></pre></td></tr></table></figure>
+
+<p>这个视图的add方法将检查插入的对象是否属于给定的类，如果不属于，就会立即抛出一个ClassCastException，这样就可以在正确的位置报告异常。</p>
+<h5 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h5><p>除了实现集合类，Java集合框架还提供了一些有用的算法。</p>
+<h6 id="排序与混排"><a href="#排序与混排" class="headerlink" title="排序与混排"></a>排序与混排</h6><p>Collections类中的sort方法可以对实现了List接口的集合进行排序。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collections.sort(staff);</span><br></pre></td></tr></table></figure>
+
+<p>这个方法假定列表元素实现了Comparable接口，如果想使用其他方法进行排序，可以使用List接口的sort方法并传入一个Comparator对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">staff.sort(Comparator.comparingDouble(Employee::getSalary()));</span><br></pre></td></tr></table></figure>
+
+<p>如果想按照降序排序，可以使用静态方法Collections.reverseOrder，这个方法将返回一个比较器，比较器则返回b.compare(a)，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">staff.sort(Collections.reverseOrder());</span><br></pre></td></tr></table></figure>
+
+<p>同样的，可以将工资降序排序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">staff.sort(Comparator.comparingDouble(Employee::getSalary()).reversed());</span><br></pre></td></tr></table></figure>
+
+<p>Collections类还有一个算法shuffle，其功能与排序刚好相反，它会随机的混排列表中元素的顺序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collections.shuffle(staff);</span><br></pre></td></tr></table></figure>
+
+<h6 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h6><p>Collections类的binSerach方法实现了二分查找算法，但集合必须是有序地，否则会返回错误的答案。要想查找某个元素，必须提供集合以及要查找的元素。如果集合没有采用Comparable接口的compareTo方法进行排序，就还要提供一个比较器对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i = Collections.binarySerach(c, element);</span><br><span class="line">i = Collections.binarySearch(c, element, comparator);</span><br></pre></td></tr></table></figure>
+
+<p>如果方法返回一个非负的值，则表示匹配对象的索引，若为负值，则表示没有匹配。</p>
+<h6 id="集合与数组的转换"><a href="#集合与数组的转换" class="headerlink" title="集合与数组的转换"></a>集合与数组的转换</h6><p>如果需要把一个数组转换为集合，List.of包装器可以达到这个目的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] vals = ...;</span><br><span class="line"><span class="keyword">var</span> staff = List.of(vals);</span><br></pre></td></tr></table></figure>
+
+<p>从集合得到数组则使用toArray方法，并提供一个指定类型且长度为0的数组，这样返回的数组类型就不是Object：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">staff.toArray(<span class="keyword">new</span> String[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+
+
+
+
     </div>
 
     
@@ -573,6 +658,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2020/12/11/%E5%B9%B6%E5%8F%91/" rel="next" title="并发">
+                  并发 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -620,7 +708,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
